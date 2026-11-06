@@ -1,0 +1,19 @@
+[
+  {
+    "timestamp": "2026-11-06 16:08:35",
+    "ip": "127.0.0.1",
+    "user_agent": "curl/8.7.1",
+    "registration_data": {
+      "nombre": "Martín Pérez",
+      "email": "martin.perez@test.example",
+      "telefono": "+52 55 1234 5678",
+      "tipo_cuenta": "particular",
+      "direccion": "Av. Los Naranjos 340",
+      "ciudad": "Monterrey",
+      "preferencias": [
+        "azahar",
+        "panal"
+      ]
+    }
+  }
+]

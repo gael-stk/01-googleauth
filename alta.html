@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Miel Dorada – Alta de Nuevo Cliente</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --amber-50: #fffbeb;
+      --amber-100: #fef3c7;
+      --amber-200: #fde68a;
+      --amber-400: #fbbf24;
+      --amber-500: #f59e0b;
+      --amber-600: #d97706;
+      --amber-700: #b45309;
+      --amber-800: #92400e;
+      --amber-900: #78350f;
+      --amber-950: #451a03;
+      --slate-50: #f8fafc;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-600: #475569;
+      --slate-700: #334155;
+      --slate-800: #1e293b;
+      --slate-900: #0f172a;
+      --green-600: #16a34a;
+      --green-50: #f0fdf4;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: radial-gradient(circle at 10% 10%, #fffdf5 0%, #fef3c7 40%, #fdf6e2 100%);
+      color: var(--slate-800);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Navbar */
+    header {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(217, 119, 6, 0.15);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 14px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 20px -2px rgba(217, 119, 6, 0.05);
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
+      color: white;
+      font-size: 22px;
+    }
+
+    .brand-text h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--amber-950);
+      letter-spacing: -0.3px;
+    }
+
+    .brand-text span {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--amber-700);
+      font-weight: 700;
+    }
+
+    .nav-user {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--amber-50);
+      border: 1px solid var(--amber-200);
+      padding: 6px 14px 6px 8px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--amber-900);
+    }
+
+    .g-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* Main Container */
+    main {
+      flex: 1;
+      max-width: 900px;
+      width: 100%;
+      margin: 36px auto;
+      padding: 0 20px;
+    }
+
+    .hero-card {
+      background: white;
+      border-radius: 20px;
+      padding: 32px 36px;
+      border: 1px solid rgba(217, 119, 6, 0.18);
+      box-shadow: 0 20px 40px -15px rgba(217, 119, 6, 0.08);
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "🍯";
+      position: absolute;
+      right: 24px;
+      bottom: -15px;
+      font-size: 110px;
+      opacity: 0.12;
+      pointer-events: none;
+    }
+
+    .badge-welcome {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--amber-100);
+      color: var(--amber-800);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px;
+      color: var(--amber-950);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .hero-desc {
+      color: var(--slate-600);
+      font-size: 15px;
+      line-height: 1.6;
+      max-width: 650px;
+    }
+
+    .promo-banner {
+      margin-top: 18px;
+      background: linear-gradient(90deg, #fffbeb 0%, #fef3c7 100%);
+      border: 1px dashed var(--amber-400);
+      border-radius: 12px;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--amber-900);
+      font-size: 13.5px;
+    }
+
+    .promo-banner strong {
+      color: var(--amber-800);
+      background: #fde68a;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-family: monospace;
+      font-size: 13px;
+    }
+
+    /* Form Card */
+    .form-card {
+      background: white;
+      border-radius: 20px;
+      border: 1px solid rgba(217, 119, 6, 0.16);
+      box-shadow: 0 20px 40px -15px rgba(217, 119, 6, 0.08);
+      padding: 36px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--amber-950);
+      margin: 28px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--amber-100);
+    }
+
+    .section-title:first-of-type {
+      margin-top: 0;
+    }
+
+    .section-num {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--amber-500);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 16px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 680px) {
+      .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
+      }
+      .form-card, .hero-card {
+        padding: 24px;
+      }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      position: relative;
+    }
+
+    .form-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--slate-700);
+    }
+
+    .form-label span.req {
+      color: #ef4444;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1.5px solid var(--slate-200);
+      font-size: 14px;
+      font-family: inherit;
+      color: var(--slate-850);
+      transition: all 0.2s ease;
+      background: #fafaf9;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--amber-500);
+      background: white;
+      box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.15);
+    }
+
+    .verified-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11.5px;
+      color: var(--green-600);
+      background: var(--green-50);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+      margin-left: 6px;
+    }
+
+    /* Account type radio cards */
+    .radio-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    @media (max-width: 680px) {
+      .radio-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .radio-card {
+      border: 2px solid var(--slate-200);
+      border-radius: 14px;
+      padding: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      position: relative;
+    }
+
+    .radio-card:hover {
+      border-color: var(--amber-400);
+      background: var(--amber-50);
+    }
+
+    .radio-card.selected {
+      border-color: var(--amber-500);
+      background: #fffbeb;
+      box-shadow: 0 4px 15px rgba(217, 119, 6, 0.12);
+    }
+
+    .radio-card input[type="radio"] {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      accent-color: var(--amber-600);
+    }
+
+    .radio-card-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--amber-950);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .radio-card-desc {
+      font-size: 12px;
+      color: var(--slate-600);
+      line-height: 1.4;
+    }
+
+    /* Checkbox tags */
+    .pref-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    @media (max-width: 600px) {
+      .pref-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .pref-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1.5px solid var(--slate-200);
+      padding: 10px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 13.5px;
+      background: #fff;
+      transition: 0.2s;
+    }
+
+    .pref-item:hover {
+      background: var(--amber-50);
+      border-color: var(--amber-300);
+    }
+
+    .pref-item input[type="checkbox"] {
+      accent-color: var(--amber-600);
+      width: 17px;
+      height: 17px;
+    }
+
+    /* Submit section */
+    .action-bar {
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid var(--slate-200);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .terms-text {
+      font-size: 12px;
+      color: var(--slate-600);
+      max-width: 420px;
+      line-height: 1.5;
+    }
+
+    .btn-submit {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 25px -5px rgba(217, 119, 6, 0.4);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px -5px rgba(217, 119, 6, 0.5);
+    }
+
+    .btn-submit:active {
+      transform: translateY(0);
+    }
+
+    /* Success Card (Hidden by default) */
+    .success-view {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+      animation: popIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .success-icon {
+      width: 72px;
+      height: 72px;
+      background: #fef3c7;
+      border: 3px solid #f59e0b;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      box-shadow: 0 10px 25px rgba(245, 158, 11, 0.25);
+    }
+
+    .success-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 26px;
+      color: var(--amber-950);
+      margin-bottom: 8px;
+    }
+
+    .success-subtitle {
+      font-size: 15px;
+      color: var(--slate-600);
+      margin-bottom: 24px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .ticket-card {
+      background: #fffdf5;
+      border: 1.5px dashed var(--amber-400);
+      border-radius: 16px;
+      padding: 24px;
+      max-width: 480px;
+      margin: 0 auto 28px;
+      text-align: left;
+    }
+
+    .ticket-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid #fde68a;
+      font-size: 13.5px;
+    }
+
+    .ticket-row:last-child {
+      border-bottom: none;
+    }
+
+    .ticket-label {
+      color: var(--amber-800);
+      font-weight: 500;
+    }
+
+    .ticket-val {
+      font-weight: 700;
+      color: var(--amber-950);
+    }
+
+    /* Product catalog preview */
+    .catalog-section {
+      margin-top: 28px;
+      text-align: left;
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .catalog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .product-mini-card {
+      background: white;
+      border: 1px solid var(--amber-200);
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    }
+
+    .product-mini-card .emoji {
+      font-size: 32px;
+      margin-bottom: 6px;
+    }
+
+    .product-mini-card h4 {
+      font-size: 14px;
+      color: var(--amber-950);
+      margin-bottom: 4px;
+    }
+
+    .product-mini-card p {
+      font-size: 12px;
+      color: var(--slate-600);
+      margin-bottom: 8px;
+    }
+
+    .product-mini-card .price {
+      font-weight: 800;
+      color: var(--amber-700);
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header -->
+  <header>
+    <a href="#" class="brand-wrap">
+      <div class="brand-icon">🐝</div>
+      <div class="brand-text">
+        <h1>Miel Dorada</h1>
+        <span>Apiarios Silvestres & Miel Pura</span>
+      </div>
+    </a>
+
+    <div class="nav-user" id="user-chip">
+      <div class="g-badge">
+        <svg width="15" height="15" viewBox="0 0 24 24">
+          <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+          <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.34 24 12 24z"/>
+          <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.16 0 9.97 0 12c0 2.03.45 3.84 1.25 5.42l4.03-3.15z"/>
+          <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.34 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+        </svg>
+      </div>
+      <span id="nav-email-display">Verificando sesión...</span>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main>
+    <!-- Hero Context Header -->
+    <div class="hero-card">
+      <div class="badge-welcome">🍯 Alta de Cliente en Línea</div>
+      <h2 class="hero-title">Completa tu registro en Miel Dorada</h2>
+      <p class="hero-desc">
+        Has accedido correctamente mediante tu cuenta de Google. Para realizar tus pedidos de miel 100% pura de colmena, personalizar tus variedades favoritas y recibir promociones directas del apiario, completa los datos de tu cuenta a continuación.
+      </p>
+      <div class="promo-banner">
+        <span>🎉</span>
+        <div>
+          <strong>MIEL15GOOGLE</strong> &nbsp;— Disfruta de un <strong>15% de descuento</strong> y envío prioritario en tu primer pedido de miel artesanal.
+        </div>
+      </div>
+    </div>
+
+    <!-- Registration Form View -->
+    <div class="form-card" id="form-container">
+      <form id="form-alta" onsubmit="handleAltaSubmit(event)">
+
+        <!-- Sección 1: Datos Personales -->
+        <div class="section-title">
+          <div class="section-num">1</div>
+          <span>Información Personal y Contacto</span>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label">Nombre y Apellidos <span class="req">*</span></label>
+            <input type="text" id="nombre" name="nombre" class="form-input" required placeholder="Ej. Martín Pérez" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">
+              Correo Electrónico
+              <span class="verified-pill">
+                <svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                Google SSO
+              </span>
+            </label>
+            <input type="email" id="email" name="email" class="form-input" readonly style="background:#f1f5f9; cursor:not-allowed;" />
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label">Teléfono / WhatsApp de Notificaciones <span class="req">*</span></label>
+            <input type="tel" id="telefono" name="telefono" class="form-input" required placeholder="+52 (55) 1234-5678" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Fecha de Nacimiento (Regalo en tu cumple)</label>
+            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" class="form-input" />
+          </div>
+        </div>
+
+        <!-- Sección 2: Tipo de Cliente -->
+        <div class="section-title">
+          <div class="section-num">2</div>
+          <span>Tipo de Cuenta y Uso de Miel</span>
+        </div>
+
+        <div class="radio-cards">
+          <label class="radio-card selected" onclick="selectRadio(this)">
+            <input type="radio" name="tipo_cuenta" value="particular" checked />
+            <div class="radio-card-title">🍯 Hogar / Gourmet</div>
+            <div class="radio-card-desc">Para consumo familiar, recetas caseras, infusiones y cuidado de la salud.</div>
+          </label>
+
+          <label class="radio-card" onclick="selectRadio(this)">
+            <input type="radio" name="tipo_cuenta" value="negocio" />
+            <div class="radio-card-title">☕ Hostelería / Cafetería</div>
+            <div class="radio-card-desc">Tarifas mayoristas en cubetas de 5kg y 19kg para repostería y restaurantes.</div>
+          </label>
+
+          <label class="radio-card" onclick="selectRadio(this)">
+            <input type="radio" name="tipo_cuenta" value="distribuidor" />
+            <div class="radio-card-title">🐝 Distribuidor Apícola</div>
+            <div class="radio-card-desc">Puntos de venta orgánicos, tiendas gourmet y distribución local.</div>
+          </label>
+        </div>
+
+        <!-- Sección 3: Dirección de Envío -->
+        <div class="section-title">
+          <div class="section-num">3</div>
+          <span>Dirección de Envío para Frascos de Miel</span>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label">Calle y Número Exterior / Interior <span class="req">*</span></label>
+            <input type="text" id="direccion" name="direccion" class="form-input" required placeholder="Av. Los Naranjos 340, Depto 2B" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Colonia / Fraccionamiento <span class="req">*</span></label>
+            <input type="text" id="colonia" name="colonia" class="form-input" required placeholder="Colonia San Jerónimo" />
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <div class="form-group">
+            <label class="form-label">Código Postal <span class="req">*</span></label>
+            <input type="text" id="cp" name="cp" class="form-input" required placeholder="64000" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Ciudad / Municipio <span class="req">*</span></label>
+            <input type="text" id="ciudad" name="ciudad" class="form-input" required placeholder="Monterrey" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Estado / Provincia <span class="req">*</span></label>
+            <input type="text" id="estado" name="estado" class="form-input" required placeholder="Nuevo León" />
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom:16px">
+          <label class="form-label">Indicaciones especiales de entrega (Manejo frágil de vidrio)</label>
+          <textarea id="notas" name="notas" rows="2" class="form-textarea" placeholder="Ej. Dejar con el vigilante si no respondo el timbre."></textarea>
+        </div>
+
+        <!-- Sección 4: Preferencias de Miel -->
+        <div class="section-title">
+          <div class="section-num">4</div>
+          <span>Tus Variedades de Miel Favoritas</span>
+        </div>
+
+        <div class="pref-grid">
+          <label class="pref-item">
+            <input type="checkbox" name="preferencias" value="azahar" checked />
+            <span>🌼 <strong>Miel de Azahar:</strong> Suave, aromática, notas cítricas.</span>
+          </label>
+
+          <label class="pref-item">
+            <input type="checkbox" name="preferencias" value="bosque" checked />
+            <span>🌲 <strong>Miel de Bosque y Romero:</strong> Oscura, densa y mineral.</span>
+          </label>
+
+          <label class="pref-item">
+            <input type="checkbox" name="preferencias" value="panal" />
+            <span>🍯 <strong>Corte de Panal Silvestre:</strong> Miel con cera natural crujiente.</span>
+          </label>
+
+          <label class="pref-item">
+            <input type="checkbox" name="preferencias" value="propoleo" />
+            <span>🌿 <strong>Propóleo & Jalea Real:</strong> Suplemento natural defensas.</span>
+          </label>
+        </div>
+
+        <div class="action-bar">
+          <p class="terms-text">
+            Al darte de alta aceptas nuestras políticas de trazabilidad apícola y términos de entrega de productos artesanales garantizados.
+          </p>
+          <button type="submit" id="btn-submit" class="btn-submit">
+            <span>Completar Alta de Cliente</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Success View (Shown after submission) -->
+    <div class="form-card success-view" id="success-view">
+      <div class="success-icon">✨</div>
+      <h2 class="success-title">¡Bienvenido al Club Miel Dorada!</h2>
+      <p class="success-subtitle">
+        Tu alta ha sido registrada exitosamente. Hemos vinculado tu cuenta de Google para compras rápidas de miel artesanal.
+      </p>
+
+      <div class="ticket-card">
+        <div class="ticket-row">
+          <span class="ticket-label">Número de Socio Apícola:</span>
+          <span class="ticket-val" id="res-id">MD-88421</span>
+        </div>
+        <div class="ticket-row">
+          <span class="ticket-label">Titular:</span>
+          <span class="ticket-val" id="res-name">Martín Pérez</span>
+        </div>
+        <div class="ticket-row">
+          <span class="ticket-label">Correo Vinculado:</span>
+          <span class="ticket-val" id="res-email">martin.perez@test.example</span>
+        </div>
+        <div class="ticket-row">
+          <span class="ticket-label">Tipo de Cuenta:</span>
+          <span class="ticket-val" id="res-type">Hogar / Gourmet</span>
+        </div>
+        <div class="ticket-row">
+          <span class="ticket-label">Cupón de Bienvenida:</span>
+          <span class="ticket-val" style="color:var(--amber-700)">MIEL15GOOGLE (-15%)</span>
+        </div>
+      </div>
+
+      <div class="catalog-section">
+        <h3 style="font-size:16px;color:var(--amber-950);margin-bottom:4px;">Cosechas destacadas listas para tu primer pedido:</h3>
+        <div class="catalog-grid">
+          <div class="product-mini-card">
+            <div class="emoji">🍯</div>
+            <h4>Miel Cruda de Azahar</h4>
+            <p>Frasco 500g • Cosecha Mayo</p>
+            <div class="price">$180 MXN</div>
+          </div>
+          <div class="product-mini-card">
+            <div class="emoji">🌲</div>
+            <h4>Miel de Bosque y Roble</h4>
+            <p>Frasco 1 Kg • Sabor Robusto</p>
+            <div class="price">$320 MXN</div>
+          </div>
+          <div class="product-mini-card">
+            <div class="emoji">🐝</div>
+            <h4>Panal Rústico Entero</h4>
+            <p>350g con cera virgen</p>
+            <div class="price">$250 MXN</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:28px;">
+        <button class="btn-submit" onclick="window.location.reload()">
+          <span>Ver mi Perfil y Catálogo Completo</span>
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Initialize query params & Google SSO session
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const email = params.get('email') || 'martin.perez@test.example';
+      const name = params.get('name') || (email.split('@')[0].replace('.', ' ').replace(/\b\w/g, l => l.toUpperCase()));
+
+      const emailInput = document.getElementById('email');
+      const nameInput = document.getElementById('nombre');
+      const navEmail = document.getElementById('nav-email-display');
+
+      if (emailInput) emailInput.value = email;
+      if (nameInput) nameInput.value = name;
+      if (navEmail) navEmail.textContent = email;
+    });
+
+    function selectRadio(card) {
+      document.querySelectorAll('.radio-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      const radio = card.querySelector('input[type="radio"]');
+      if (radio) radio.checked = true;
+    }
+
+    async function handleAltaSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('btn-submit');
+      btn.disabled = true;
+      btn.innerHTML = '<span>Procesando alta...</span>';
+
+      const formData = new FormData(e.target);
+      const payload = {
+        nombre: formData.get('nombre'),
+        email: formData.get('email'),
+        telefono: formData.get('telefono'),
+        fecha_nacimiento: formData.get('fecha_nacimiento'),
+        tipo_cuenta: formData.get('tipo_cuenta'),
+        direccion: formData.get('direccion'),
+        colonia: formData.get('colonia'),
+        cp: formData.get('cp'),
+        ciudad: formData.get('ciudad'),
+        estado: formData.get('estado'),
+        notas: formData.get('notas'),
+        preferencias: formData.getAll('preferencias'),
+        timestamp: new Date().toISOString()
+      };
+
+      try {
+        const response = await fetch('/api/alta', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+        const data = await response.json();
+        console.log('Alta registrada con éxito:', data);
+      } catch (err) {
+        console.warn('Registro local procesado (red o fallback):', err);
+      }
+
+      // Populate success ticket
+      document.getElementById('res-id').textContent = 'MD-' + Math.floor(10000 + Math.random() * 90000);
+      document.getElementById('res-name').textContent = payload.nombre || 'Cliente';
+      document.getElementById('res-email').textContent = payload.email || '';
+      document.getElementById('res-type').textContent = payload.tipo_cuenta === 'negocio' 
+        ? 'Hostelería / Cafetería' 
+        : payload.tipo_cuenta === 'distribuidor' 
+          ? 'Distribuidor Apícola' 
+          : 'Hogar / Gourmet';
+
+      document.getElementById('form-container').style.display = 'none';
+      document.getElementById('success-view').style.display = 'block';
+      window.scrollTo({ top: 120, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>

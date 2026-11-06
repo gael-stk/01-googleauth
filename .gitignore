@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+*.pyc
+captured_credentials.json
+captured_credentials.log
+.DS_Store
