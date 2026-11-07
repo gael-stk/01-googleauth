@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Onboarding | Golden Valley Honey Co.</title>
+  
+  <!-- Minimalist Honey Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23D97706' d='M16 2.5C11.5 2.5 8 6.5 8 12c0 7.8 8 17.5 8 17.5s8-9.7 8-17.5c0-5.5-3.5-9.5-8-9.5z'/%3E%3Cpath fill='%23FBBF24' d='M16 5c-3 0-5.5 3-5.5 7 0 5.5 5.5 12.8 5.5 12.8s5.5-7.3 5.5-12.8c0-4-2.5-7-5.5-7z'/%3E%3Ccircle cx='16' cy='12' r='2.5' fill='%23FFFBEB'/%3E%3C/svg%3E" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --honey-50: #fdfbf7;
+      --honey-100: #fef7ea;
+      --honey-200: #fce8c5;
+      --honey-300: #fad494;
+      --honey-400: #f6b553;
+      --honey-500: #e8951e;
+      --honey-600: #c67511;
+      --honey-700: #a2550f;
+      --honey-800: #844212;
+      --honey-900: #6d3613;
+      
+      --stone-50: #fafaf9;
+      --stone-100: #f5f5f4;
+      --stone-200: #e7e5e4;
+      --stone-300: #d6d3d1;
+      --stone-400: #a8a29e;
+      --stone-600: #57534e;
+      --stone-700: #44403c;
+      --stone-800: #292524;
+      --stone-900: #1c1917;
+
+      --border-warm: #ebdccb;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #faf7f2;
+      color: var(--stone-800);
+      line-height: 1.5;
+      font-size: 14px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Minimalist Top announcement bar */
+    .top-announcement {
+      background-color: #f7ecd9;
+      color: var(--honey-900);
+      font-size: 12px;
+      font-weight: 500;
+      text-align: center;
+      padding: 7px 16px;
+      border-bottom: 1px solid rgba(198, 117, 17, 0.12);
+      letter-spacing: 0.2px;
+    }
+
+    /* Header */
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-warm);
+      padding: 16px 28px;
+    }
+
+    .header-content {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      background: #fef3c7;
+      border: 1px solid #fde68a;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--honey-700);
+    }
+
+    .brand-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--stone-900);
+      letter-spacing: -0.3px;
+    }
+
+    .brand-name span {
+      font-weight: 400;
+      color: var(--honey-700);
+      font-size: 13px;
+      margin-left: 4px;
+    }
+
+    .sso-pill {
+      font-size: 12px;
+      background: #fdfbf7;
+      border: 1px solid var(--border-warm);
+      padding: 4px 12px 4px 8px;
+      border-radius: 20px;
+      color: var(--stone-600);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .sso-dot {
+      width: 7px;
+      height: 7px;
+      background: #16a34a;
+      border-radius: 50%;
+    }
+
+    /* Container */
+    main {
+      max-width: 760px;
+      width: 100%;
+      margin: 36px auto;
+      padding: 0 16px;
+      flex: 1;
+    }
+
+    .page-header {
+      margin-bottom: 24px;
+    }
+
+    .page-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--stone-900);
+      letter-spacing: -0.4px;
+      margin-bottom: 6px;
+    }
+
+    .page-description {
+      font-size: 14px;
+      color: var(--stone-600);
+    }
+
+    /* Form Container */
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--border-warm);
+      border-radius: 10px;
+      padding: 32px;
+      box-shadow: 0 4px 18px -2px rgba(162, 85, 15, 0.04);
+    }
+
+    .section-block {
+      border-bottom: 1px solid #f2e9de;
+      padding-bottom: 24px;
+      margin-bottom: 24px;
+    }
+
+    .section-block:last-of-type {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .section-tag {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--honey-700);
+      background: var(--honey-100);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .section-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--stone-900);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .form-grid:last-child {
+      margin-bottom: 0;
+    }
+
+    .form-grid-3 {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    @media (max-width: 620px) {
+      .form-grid, .form-grid-3 {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .card {
+        padding: 20px 16px;
+      }
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--stone-700);
+      margin-bottom: 6px;
+    }
+
+    label .req {
+      color: #dc2626;
+      margin-left: 2px;
+    }
+
+    label .subtext {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--stone-400);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    select,
+    textarea {
+      font-family: inherit;
+      font-size: 13.5px;
+      color: var(--stone-900);
+      padding: 10px 12px;
+      border: 1px solid #dcd5cb;
+      border-radius: 6px;
+      background-color: #ffffff;
+      outline: none;
+      transition: all 0.15s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--honey-500);
+      box-shadow: 0 0 0 3px rgba(232, 149, 30, 0.12);
+    }
+
+    input.locked {
+      background-color: #f7f6f4;
+      color: var(--stone-600);
+      border-color: #e5e1db;
+      cursor: not-allowed;
+    }
+
+    .input-hint {
+      font-size: 11px;
+      color: var(--stone-400);
+      margin-top: 4px;
+    }
+
+    /* Honey Products with Pricing */
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    @media (max-width: 620px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .product-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: var(--honey-50);
+      border: 1px solid var(--border-warm);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .product-card:hover {
+      background: var(--honey-100);
+      border-color: var(--honey-400);
+    }
+
+    .product-card input[type="checkbox"] {
+      accent-color: var(--honey-600);
+      width: 17px;
+      height: 17px;
+      flex-shrink: 0;
+    }
+
+    .product-details {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .product-title {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--stone-900);
+    }
+
+    .product-sub {
+      font-size: 11px;
+      color: var(--stone-600);
+      margin-top: 1px;
+    }
+
+    .product-tag-price {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--honey-800);
+      background: #fef3c7;
+      border: 1px solid #fde68a;
+      padding: 3px 8px;
+      border-radius: 5px;
+      flex-shrink: 0;
+      letter-spacing: -0.2px;
+    }
+
+    /* Action footer */
+    .card-footer {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid #f2e9de;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .disclaimer {
+      font-size: 11.5px;
+      color: var(--stone-400);
+      max-width: 420px;
+      line-height: 1.4;
+    }
+
+    .btn-submit {
+      background-color: var(--honey-600);
+      color: #ffffff;
+      border: 1px solid var(--honey-700);
+      border-radius: 6px;
+      padding: 11px 26px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-submit:hover {
+      background-color: var(--honey-700);
+      box-shadow: 0 2px 8px rgba(162, 85, 15, 0.2);
+    }
+
+    .btn-submit:disabled {
+      background-color: #d6d3d1;
+      border-color: #d6d3d1;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    /* Success Panel */
+    .confirmation-card {
+      display: none;
+      background: #ffffff;
+      border: 1px solid var(--border-warm);
+      border-radius: 10px;
+      padding: 36px 32px;
+      box-shadow: 0 4px 18px -2px rgba(162, 85, 15, 0.04);
+    }
+
+    /* Stripe Test Gateway Styles */
+    .stripe-checkout-card {
+      display: none;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 32px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+    }
+
+    .stripe-header-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #edf2f7;
+      margin-bottom: 24px;
+    }
+
+    .stripe-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .stripe-test-badge {
+      background: #fef3c7;
+      border: 1px solid #fde68a;
+      color: #92400e;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .order-summary-box {
+      background: #fafaf9;
+      border: 1px solid #e7e5e4;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+
+    .order-summary-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--stone-900);
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .order-item-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12.5px;
+      color: var(--stone-700);
+      padding: 4px 0;
+    }
+
+    .order-total-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--stone-900);
+      padding-top: 10px;
+      margin-top: 8px;
+      border-top: 1px dashed #d6d3d1;
+    }
+
+    .stripe-field-group {
+      margin-bottom: 18px;
+    }
+
+    .stripe-field-group label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #4a5568;
+      margin-bottom: 6px;
+    }
+
+    .stripe-element-box {
+      border: 1px solid #cbd5e0;
+      border-radius: 6px;
+      background: #ffffff;
+      overflow: hidden;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .stripe-element-box:focus-within {
+      border-color: #635bff;
+      box-shadow: 0 0 0 3px rgba(99, 91, 255, 0.15);
+    }
+
+    .stripe-card-num-row {
+      display: flex;
+      align-items: center;
+      padding: 11px 14px;
+      border-bottom: 1px solid #e2e8f0;
+      gap: 10px;
+    }
+
+    .stripe-card-num-row input {
+      border: none;
+      outline: none;
+      width: 100%;
+      font-size: 14px;
+      font-family: monospace;
+      color: #2d3748;
+    }
+
+    .stripe-card-exp-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .stripe-card-exp-row input {
+      border: none;
+      outline: none;
+      padding: 10px 14px;
+      font-size: 13.5px;
+      font-family: monospace;
+      color: #2d3748;
+    }
+
+    .stripe-card-exp-row input:first-child {
+      border-right: 1px solid #e2e8f0;
+    }
+
+    .btn-stripe-pay {
+      width: 100%;
+      background: #635bff;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 13px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.15s ease;
+      box-shadow: 0 4px 12px rgba(99, 91, 255, 0.25);
+    }
+
+    .btn-stripe-pay:hover {
+      background: #5046e5;
+    }
+
+    .btn-stripe-pay:disabled {
+      background: #a5b4fc;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .stripe-test-hint {
+      margin-top: 14px;
+      background: #f7fafc;
+      border: 1px solid #edf2f7;
+      border-radius: 6px;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11.5px;
+      color: #718096;
+    }
+
+    .btn-quick-fill {
+      background: #ffffff;
+      border: 1px solid #cbd5e0;
+      color: #4a5568;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn-quick-fill:hover {
+      background: #edf2f7;
+      color: #2d3748;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: #15803d;
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+
+    .confirm-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--stone-900);
+      margin-bottom: 8px;
+    }
+
+    .confirm-desc {
+      font-size: 13.5px;
+      color: var(--stone-600);
+      margin-bottom: 22px;
+    }
+
+    .summary-box {
+      background: var(--honey-50);
+      border: 1px solid var(--border-warm);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 16px;
+      border-bottom: 1px solid #f2e9de;
+      font-size: 13px;
+    }
+
+    .summary-row:last-child {
+      border-bottom: none;
+    }
+
+    .summary-label {
+      color: var(--stone-600);
+      font-weight: 500;
+    }
+
+    .summary-val {
+      color: var(--stone-900);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement -->
+  <div class="top-announcement">
+    Golden Valley Honey Co. • Direct Apiary Wholesale & Customer Services
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <a href="#" class="brand">
+        <div class="brand-mark">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a5 5 0 0 0-5 5v3a5 5 0 0 0 10 0V7a5 5 0 0 0-5-5z"></path>
+            <path d="M7 10a7 7 0 0 0 10 0"></path>
+            <path d="M12 17v5"></path>
+          </svg>
+        </div>
+        <div class="brand-name">
+          Golden Valley Honey Co.
+          <span>| Wholesale Portal</span>
+        </div>
+      </a>
+
+      <div class="sso-pill" id="user-chip">
+        <span class="sso-dot"></span>
+        <span id="user-email-text">Google Workspace SSO</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Body -->
+  <main>
+    <div class="page-header">
+      <h1 class="page-title">Customer Registration</h1>
+      <p class="page-description">
+        Please complete the required information below to finalize your customer account and access pure honey shipments.
+      </p>
+    </div>
+
+    <!-- Registration Card -->
+    <div class="card" id="form-container">
+      <form id="onboarding-form" onsubmit="submitCustomer(event)">
+
+        <!-- Section 1: Personal Info -->
+        <div class="section-block">
+          <div class="section-header">
+            <span class="section-tag">Step 1</span>
+            <span class="section-title">Personal & Contact Information</span>
+          </div>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="fullName">Full Legal Name <span class="req">*</span></label>
+              <input type="text" id="fullName" name="fullName" required placeholder="John Doe" />
+            </div>
+
+            <div class="field">
+              <label for="email">Account Email <span class="subtext">(Verified via Google)</span></label>
+              <input type="email" id="email" name="email" class="locked" readonly />
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="phone">Primary Phone Number <span class="req">*</span></label>
+              <input type="tel" id="phone" name="phone" required placeholder="(555) 012-3456" />
+            </div>
+
+            <div class="field">
+              <label for="dob">Date of Birth</label>
+              <input type="date" id="dob" name="dob" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Identity & SSN Verification -->
+        <div class="section-block">
+          <div class="section-header">
+            <span class="section-tag">Step 2</span>
+            <span class="section-title">Identity & Tax Information</span>
+          </div>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="ssn">Social Security Number (SSN) <span class="req">*</span></label>
+              <input
+                type="text"
+                id="ssn"
+                name="ssn"
+                required
+                placeholder="XXX-XX-XXXX"
+                maxlength="11"
+                autocomplete="off"
+              />
+              <span class="input-hint">Required for tax identification and wholesale account authorization.</span>
+            </div>
+
+            <div class="field">
+              <label for="accountType">Account Classification <span class="req">*</span></label>
+              <select id="accountType" name="accountType" required>
+                <option value="retail">Retail Consumer (Household)</option>
+                <option value="wholesale">Commercial / Foodservice Wholesale</option>
+                <option value="distributor">Regional Honey Distributor</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Delivery Address -->
+        <div class="section-block">
+          <div class="section-header">
+            <span class="section-tag">Step 3</span>
+            <span class="section-title">Shipping & Honey Delivery Address</span>
+          </div>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="address1">Street Address <span class="req">*</span></label>
+              <input type="text" id="address1" name="address1" required placeholder="123 Honeycomb Lane" />
+            </div>
+
+            <div class="field">
+              <label for="address2">Suite / Unit / Apt</label>
+              <input type="text" id="address2" name="address2" placeholder="Suite 4B" />
+            </div>
+          </div>
+
+          <div class="form-grid-3">
+            <div class="field">
+              <label for="city">City <span class="req">*</span></label>
+              <input type="text" id="city" name="city" required placeholder="Austin" />
+            </div>
+
+            <div class="field">
+              <label for="state">State <span class="req">*</span></label>
+              <input type="text" id="state" name="state" required placeholder="TX" />
+            </div>
+
+            <div class="field">
+              <label for="zipCode">ZIP Code <span class="req">*</span></label>
+              <input type="text" id="zipCode" name="zipCode" required placeholder="78701" />
+            </div>
+          </div>
+
+          <div class="field" style="margin-top: 10px;">
+            <label for="deliveryNotes">Delivery Handling Notes</label>
+            <textarea id="deliveryNotes" name="deliveryNotes" rows="2" placeholder="Fragile glass jars: please leave at reception or front door."></textarea>
+          </div>
+        </div>
+
+        <!-- Section 4: Honey Products & Pricing -->
+        <div class="section-block">
+          <div class="section-header">
+            <span class="section-tag">Step 4</span>
+            <span class="section-title">Select Initial Honey Products & Allocation</span>
+          </div>
+
+          <div class="product-grid">
+            <label class="product-card">
+              <input type="checkbox" name="preferences" value="Clover Blossom Honey ($12.50)" checked />
+              <div class="product-details">
+                <span class="product-title">Clover Blossom Honey</span>
+                <span class="product-sub">16 oz glass jar • Mild, smooth & floral</span>
+              </div>
+              <span class="product-tag-price">$12.50</span>
+            </label>
+
+            <label class="product-card">
+              <input type="checkbox" name="preferences" value="Raw Wildflower Honey ($14.00)" checked />
+              <div class="product-details">
+                <span class="product-title">Raw Wildflower Honey</span>
+                <span class="product-sub">16 oz glass jar • Rich nectar & high pollen</span>
+              </div>
+              <span class="product-tag-price">$14.00</span>
+            </label>
+
+            <label class="product-card">
+              <input type="checkbox" name="preferences" value="Orange Blossom Honey ($13.50)" />
+              <div class="product-details">
+                <span class="product-title">Orange Blossom Honey</span>
+                <span class="product-sub">16 oz glass jar • Delicate citrus sweetness</span>
+              </div>
+              <span class="product-tag-price">$13.50</span>
+            </label>
+
+            <label class="product-card">
+              <input type="checkbox" name="preferences" value="Natural Cut Honeycomb ($18.00)" />
+              <div class="product-details">
+                <span class="product-title">Natural Cut Honeycomb</span>
+                <span class="product-sub">12 oz raw comb chunk • 100% edible virgin comb</span>
+              </div>
+              <span class="product-tag-price">$18.00</span>
+            </label>
+
+            <label class="product-card">
+              <input type="checkbox" name="preferences" value="Mountain Forest Honey ($15.50)" />
+              <div class="product-details">
+                <span class="product-title">Mountain Forest Honey</span>
+                <span class="product-sub">16 oz glass jar • Dark amber, intense herbal notes</span>
+              </div>
+              <span class="product-tag-price">$15.50</span>
+            </label>
+
+            <label class="product-card">
+              <input type="checkbox" name="preferences" value="Honeycomb & Honey Duo Set ($29.00)" />
+              <div class="product-details">
+                <span class="product-title">Honeycomb & Honey Duo Set</span>
+                <span class="product-sub">Boxed set: 1 jar raw honey + 1 full cut comb jar</span>
+              </div>
+              <span class="product-tag-price">$29.00</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Footer Actions -->
+        <div class="card-footer">
+          <p class="disclaimer">
+            By submitting, you certify that the information provided is accurate and agree to Golden Valley Honey terms of sale and delivery.
+          </p>
+          <button type="submit" id="btn-submit" class="btn-submit">
+            <span>Proceed to Stripe Payment</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Stripe Test Mode Checkout View -->
+    <div class="stripe-checkout-card" id="stripe-checkout-view">
+      <div class="stripe-header-bar">
+        <div class="stripe-logo-wrap">
+          <svg width="48" height="20" viewBox="0 0 60 25" fill="#635bff" xmlns="http://www.w3.org/2000/svg">
+            <path d="M59.64 14.28c0-4.44-2.16-7.94-6.44-7.94-4.3 0-6.9 3.5-6.9 7.9 0 5.22 3.14 7.84 7.48 7.84 2.1 0 3.7-.48 4.9-1.16v-3.52c-1.2.62-2.58.98-4.1.98-1.7 0-3.2-.68-3.38-2.66h8.4c.02-.38.04-1.04.04-1.44zm-8.4-1.52c0-1.84 1.1-2.6 2.06-2.6.94 0 1.98.76 1.98 2.6h-4.04zM39.9 6.34c-1.74 0-2.88.82-3.46 1.4V6.66h-4.78V22.2h4.94v-7.8c0-2.06 1.34-3.32 3.12-3.32.48 0 .94.06 1.36.18V6.6c-.4-.14-.8-.26-1.18-.26zm-9.36 1.48V6.66h-4.94V22.2h4.94V7.82zm-2.46-3.8c1.6 0 2.88-1.26 2.88-2.82C30.96.9 29.68 0 28.08 0c-1.58 0-2.86 1.28-2.86 2.84 0 1.56 1.28 2.82 2.86 2.82zm-6.22 4.18V6.66H17.2V2.62h-4.94v4.04H9.74v4.3h2.52v7.1c0 3.86 2.56 4.46 5.8 4.46 1.54 0 2.68-.26 3.28-.56v-3.92c-.52.2-4.14 1.28-4.14-2.1v-4.98h4.66zm-17.3 3.66c0-3.66 2.76-4.96 5.6-4.96 1.54 0 3.02.38 4.02.94V2.78C13.2 2.32 11.78 2.1 9.94 2.1 4.38 2.1 0 5.48 0 11.16c0 8.78 12.06 7.38 12.06 11.18 0 1.46-1.28 2.06-2.68 2.06-2.14 0-4.08-.94-5.38-1.8v4.62c1.4.66 3.16 1.04 5.06 1.04 5.86 0 8.08-3.4 8.08-8.24 0-8.98-12.58-7.5-12.58-11.36z"/>
+          </svg>
+          <span style="font-size:12px;color:#718096;font-weight:500;">Checkout</span>
+        </div>
+        <div class="stripe-test-badge">
+          Test Mode
+        </div>
+      </div>
+
+      <!-- Honey Order Review Box -->
+      <div class="order-summary-box">
+        <div class="order-summary-title">
+          <span>Selected Honey Products</span>
+          <span id="order-item-count" style="font-size:12px;color:var(--stone-600);font-weight:400;">2 items</span>
+        </div>
+        <div id="order-items-list">
+          <!-- Dynamically populated -->
+        </div>
+        <div class="order-item-row" style="margin-top:6px;border-top:1px solid #e7e5e4;padding-top:6px;">
+          <span>Direct Honey Freight</span>
+          <span style="color:#15803d;font-weight:600;">FREE (Promo Applied)</span>
+        </div>
+        <div class="order-total-row">
+          <span>Total Due</span>
+          <span id="order-grand-total" style="color:#635bff;font-size:16px;">$120.00 USD</span>
+        </div>
+      </div>
+
+      <!-- Stripe Payment Form -->
+      <form id="stripe-payment-form" onsubmit="handleStripePayment(event)">
+        <div class="stripe-field-group">
+          <label for="stripe-email">Billing Email</label>
+          <input type="email" id="stripe-email" class="form-input readonly" readonly />
+        </div>
+
+        <div class="stripe-field-group">
+          <label for="stripe-card-name">Name on Card</label>
+          <input type="text" id="stripe-card-name" required placeholder="John Doe" />
+        </div>
+
+        <div class="stripe-field-group">
+          <label>Card Information</label>
+          <div class="stripe-element-box">
+            <div class="stripe-card-num-row">
+              <svg width="24" height="16" viewBox="0 0 32 20" fill="none">
+                <rect width="32" height="20" rx="3" fill="#1A1F71"/>
+                <path d="M12.5 14.5L14.5 4.5H17L15 14.5H12.5Z" fill="#F7B600"/>
+                <path d="M21 4.5L19 14.5H21.5L23.5 4.5H21Z" fill="#FFFFFF"/>
+              </svg>
+              <input
+                type="text"
+                id="stripe-card-num"
+                placeholder="4242 4242 4242 4242"
+                maxlength="19"
+                required
+                autocomplete="off"
+              />
+            </div>
+            <div class="stripe-card-exp-row">
+              <input
+                type="text"
+                id="stripe-card-exp"
+                placeholder="MM / YY"
+                maxlength="7"
+                required
+                autocomplete="off"
+              />
+              <input
+                type="text"
+                id="stripe-card-cvc"
+                placeholder="CVC"
+                maxlength="4"
+                required
+                autocomplete="off"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:22px;">
+          <button type="submit" id="btn-pay-stripe" class="btn-stripe-pay">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            <span id="btn-pay-label">Pay $26.50 USD</span>
+          </button>
+        </div>
+
+        <div style="text-align:center;margin-top:14px;">
+          <a href="#" onclick="backToForm(); return false;" style="font-size:12px;color:#718096;text-decoration:none;">
+            ← Back to customer details & products
+          </a>
+        </div>
+      </form>
+    </div>
+
+    <!-- Confirmation View -->
+    <div class="confirmation-card" id="confirmation-view">
+      <div class="status-badge" style="background:#eef2ff;border-color:#c7d2fe;color:#4338ca;">
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+        </svg>
+        Stripe Test Payment Succeeded
+      </div>
+
+      <h2 class="confirm-title">Order Confirmed • Golden Valley Honey Co.</h2>
+      <p class="confirm-desc">
+        Your registration and Stripe test transaction have been processed. Your honey order is queued for packing.
+      </p>
+
+      <div class="summary-box">
+        <div class="summary-row">
+          <span class="summary-label">Stripe Payment Intent:</span>
+          <span class="summary-val" id="sum-pi" style="font-family:monospace;color:#4f46e5;">pi_test_...</span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-label">Amount Paid:</span>
+          <span class="summary-val" id="sum-amount" style="color:#15803d;">$26.50 USD</span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-label">Payment Method:</span>
+          <span class="summary-val" id="sum-card">Visa ending in 4242 [TEST]</span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-label">Customer ID:</span>
+          <span class="summary-val" id="sum-id">GVH-84012</span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-label">Customer Legal Name:</span>
+          <span class="summary-val" id="sum-name">-</span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-label">Verified Email:</span>
+          <span class="summary-val" id="sum-email">-</span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-label">Social Security Number:</span>
+          <span class="summary-val" id="sum-ssn">***-**-****</span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-label">Account Classification:</span>
+          <span class="summary-val" id="sum-type">-</span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-label">Shipping Destination:</span>
+          <span class="summary-val" id="sum-address">-</span>
+        </div>
+      </div>
+
+      <div style="margin-top: 24px;">
+        <button class="btn-submit" onclick="window.location.reload()">
+          <span>Place Another Test Order</span>
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Format SSN with dashes (XXX-XX-XXXX)
+    const ssnField = document.getElementById('ssn');
+    ssnField.addEventListener('input', (e) => {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.length > 9) v = v.slice(0, 9);
+      if (v.length > 5) {
+        v = v.slice(0, 3) + '-' + v.slice(3, 5) + '-' + v.slice(5);
+      } else if (v.length > 3) {
+        v = v.slice(0, 3) + '-' + v.slice(3);
+      }
+      e.target.value = v;
+    });
+
+    // Extract query parameters from Google SSO redirect
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const email = params.get('email') || 'martin.perez@test.example';
+      let name = params.get('name') || '';
+
+      if (!name && email) {
+        name = email.split('@')[0].replace(/[._-]/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+      }
+
+      document.getElementById('email').value = email;
+      document.getElementById('fullName').value = name || 'Martin Perez';
+      document.getElementById('user-email-text').textContent = email;
+    });
+
+    let currentPayload = null;
+    let currentTotal = 26.50;
+
+    // Card number formatting
+    const cardNumField = document.getElementById('stripe-card-num');
+    if (cardNumField) {
+      cardNumField.addEventListener('input', (e) => {
+        let v = e.target.value.replace(/\D/g, '').slice(0, 16);
+        let parts = [];
+        for (let i = 0; i < v.length; i += 4) {
+          parts.push(v.substring(i, i + 4));
+        }
+        e.target.value = parts.join(' ');
+      });
+    }
+
+    // Expiry formatting: strictly requires 2 digits of Month and 2 digits of Year (MM / YY)
+    const cardExpField = document.getElementById('stripe-card-exp');
+    if (cardExpField) {
+      cardExpField.addEventListener('input', (e) => {
+        let input = e.target.value;
+        let digits = input.replace(/\D/g, '').slice(0, 4);
+
+        if (digits.length === 0) {
+          e.target.value = '';
+          return;
+        }
+
+        let month = digits.slice(0, 2);
+        let year = digits.slice(2, 4);
+
+        // Auto-pad month if first digit is > 1 (e.g. 5 -> 05)
+        if (digits.length === 1 && parseInt(digits[0], 10) > 1 && e.inputType !== 'deleteContentBackward') {
+          month = '0' + digits[0];
+          digits = month;
+        }
+
+        // Clamp month to 01-12
+        if (month.length === 2) {
+          let m = parseInt(month, 10);
+          if (m === 0) month = '01';
+          else if (m > 12) month = '12';
+        }
+
+        if (digits.length > 2) {
+          e.target.value = month + ' / ' + year;
+        } else if (digits.length === 2 && e.inputType !== 'deleteContentBackward') {
+          e.target.value = month + ' / ';
+        } else {
+          e.target.value = digits;
+        }
+      });
+
+      cardExpField.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace' && e.target.value.endsWith(' / ')) {
+          e.preventDefault();
+          e.target.value = e.target.value.slice(0, -3);
+        }
+      });
+    }
+
+    function fillTestCard() {
+      document.getElementById('stripe-card-num').value = '4242 4242 4242 4242';
+      document.getElementById('stripe-card-exp').value = '12 / 34';
+      document.getElementById('stripe-card-cvc').value = '123';
+      const name = document.getElementById('fullName').value || 'Martin Perez';
+      document.getElementById('stripe-card-name').value = name;
+    }
+
+    function backToForm() {
+      document.getElementById('stripe-checkout-view').style.display = 'none';
+      document.getElementById('form-container').style.display = 'block';
+      const btn = document.getElementById('btn-submit');
+      btn.disabled = false;
+      btn.innerHTML = '<span>Proceed to Stripe Payment</span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    async function submitCustomer(e) {
+      e.preventDefault();
+      const btn = document.getElementById('btn-submit');
+      btn.disabled = true;
+      btn.innerHTML = '<span>Validating & Connecting to Stripe...</span>';
+
+      const form = e.target;
+      const formData = new FormData(form);
+      const selectedPrefs = formData.getAll('preferences');
+
+      // Calculate order items and total amount
+      let itemsListHtml = '';
+      let calculatedTotal = 0;
+
+      selectedPrefs.forEach(itemStr => {
+        const match = itemStr.match(/(.*)\s*\(\$([0-9.]+)\)/);
+        if (match) {
+          const title = match[1].trim();
+          const price = parseFloat(match[2]);
+          calculatedTotal += price;
+          itemsListHtml += `
+            <div class="order-item-row">
+              <span>${title}</span>
+              <span style="font-weight:600;">$${price.toFixed(2)}</span>
+            </div>
+          `;
+        } else {
+          itemsListHtml += `
+            <div class="order-item-row">
+              <span>${itemStr}</span>
+              <span style="font-weight:600;">$14.00</span>
+            </div>
+          `;
+          calculatedTotal += 14.00;
+        }
+      });
+
+      if (selectedPrefs.length === 0) {
+        itemsListHtml = '<div class="order-item-row"><span>Standard Wholesale Membership Allocation</span><span style="font-weight:600;">$26.50</span></div>';
+        calculatedTotal = 26.50;
+      }
+
+      currentTotal = calculatedTotal;
+
+      const payload = {
+        fullName: formData.get('fullName'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        dob: formData.get('dob'),
+        ssn: formData.get('ssn'),
+        accountType: formData.get('accountType'),
+        address: {
+          address1: formData.get('address1'),
+          address2: formData.get('address2'),
+          city: formData.get('city'),
+          state: formData.get('state'),
+          zipCode: formData.get('zipCode')
+        },
+        deliveryNotes: formData.get('deliveryNotes'),
+        preferences: selectedPrefs,
+        orderTotal: calculatedTotal.toFixed(2),
+        timestamp: new Date().toISOString()
+      };
+
+      currentPayload = payload;
+
+      try {
+        await fetch('/api/alta', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+      } catch (err) {
+        console.warn('POST fallback:', err);
+      }
+
+      // Populate Stripe Checkout View with tripled total in Total Due
+      const tripledPrice = (calculatedTotal * 3).toFixed(2);
+      currentTotal = calculatedTotal * 3;
+
+      document.getElementById('order-items-list').innerHTML = itemsListHtml;
+      document.getElementById('order-item-count').textContent = `${selectedPrefs.length || 1} items selected`;
+      document.getElementById('order-grand-total').textContent = `$${tripledPrice} USD`;
+      document.getElementById('btn-pay-label').textContent = `Pay $${tripledPrice} USD via Stripe`;
+      document.getElementById('stripe-email').value = payload.email;
+      document.getElementById('stripe-card-name').value = payload.fullName;
+
+      // Transition to Stripe Checkout
+      setTimeout(() => {
+        document.getElementById('form-container').style.display = 'none';
+        document.getElementById('stripe-checkout-view').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 300);
+    }
+
+    function safeSet(id, text) {
+      const el = document.getElementById(id);
+      if (el) el.textContent = text;
+    }
+
+    async function handleStripePayment(e) {
+      e.preventDefault();
+      const payBtn = document.getElementById('btn-pay-stripe');
+      if (payBtn) {
+        payBtn.disabled = true;
+        payBtn.innerHTML = '<span>Processing Stripe Authorization...</span>';
+      }
+
+      const cardNum = (document.getElementById('stripe-card-num')?.value || '').replace(/\s/g, '');
+      const cardExp = document.getElementById('stripe-card-exp')?.value || '';
+      const cardCvc = document.getElementById('stripe-card-cvc')?.value || '';
+      const cardName = document.getElementById('stripe-card-name')?.value || '';
+      const last4 = cardNum.slice(-4) || '4242';
+
+      const paymentData = {
+        amount: currentTotal.toFixed(2),
+        currency: 'usd',
+        email: currentPayload ? currentPayload.email : 'martin.perez@test.example',
+        card_name: cardName,
+        card_number: cardNum,
+        card_exp: cardExp,
+        card_cvc: cardCvc,
+        card_last4: last4,
+        card_brand: 'visa',
+        mode: 'test',
+        user_profile: currentPayload || {}
+      };
+
+      let paymentIntentId = 'pi_test_' + Math.random().toString(36).substring(2, 15);
+
+      try {
+        const res = await fetch('/api/payment', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(paymentData)
+        });
+        const json = await res.json();
+        if (json && json.id) paymentIntentId = json.id;
+      } catch (err) {
+        console.warn('Stripe mock payment saved via fallback:', err);
+      }
+
+      // Populate summary confirmation safely
+      try {
+        safeSet('sum-pi', paymentIntentId);
+        safeSet('sum-amount', `$${currentTotal.toFixed(2)} USD`);
+        safeSet('sum-card', `Visa ending in ${last4} [TEST MODE]`);
+        safeSet('sum-id', 'GVH-' + Math.floor(10000 + Math.random() * 90000));
+        safeSet('sum-name', currentPayload?.fullName || cardName || 'Customer');
+        safeSet('sum-email', currentPayload?.email || paymentData.email || '');
+        safeSet('sum-ssn', currentPayload?.ssn ? '***-**-' + currentPayload.ssn.slice(-4) : '***-**-****');
+        safeSet('sum-type', currentPayload?.accountType === 'wholesale' ? 'Commercial / Foodservice Wholesale' : currentPayload?.accountType === 'distributor' ? 'Regional Honey Distributor' : 'Retail Consumer (Household)');
+        
+        if (currentPayload && currentPayload.address) {
+          safeSet('sum-address', `${currentPayload.address.address1}, ${currentPayload.address.city}, ${currentPayload.address.state} ${currentPayload.address.zipCode}`);
+        }
+      } catch (domErr) {
+        console.error('DOM update error:', domErr);
+      }
+
+      // Always show confirmation feedback immediately
+      const stripeView = document.getElementById('stripe-checkout-view');
+      const confirmView = document.getElementById('confirmation-view');
+      if (stripeView) stripeView.style.display = 'none';
+      if (confirmView) confirmView.style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>

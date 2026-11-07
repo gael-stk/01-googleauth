@@ -1,0 +1,356 @@
+[
+  {
+    "timestamp": "2026-11-06 16:23:57",
+    "payment_intent": "pi_test_ZH3FsQAO6T5Lt7LN",
+    "mode": "test",
+    "ip": "127.0.0.1",
+    "user_agent": "curl/8.7.1",
+    "amount": "26.50",
+    "currency": "usd",
+    "customer_email": "martin.perez@test.example",
+    "card_brand": "visa",
+    "card_last4": "4242",
+    "raw_payload": {
+      "amount": "26.50",
+      "currency": "usd",
+      "email": "martin.perez@test.example",
+      "card_name": "Martin Perez",
+      "card_last4": "4242",
+      "card_brand": "visa",
+      "mode": "test"
+    }
+  },
+  {
+    "timestamp": "2026-11-06 16:36:16",
+    "payment_intent": "pi_3UYvk4QgsMvuRuRf1du14eTu",
+    "mode": "test",
+    "ip": "127.0.0.1",
+    "user_agent": "curl/8.7.1",
+    "amount": "32.00",
+    "currency": "usd",
+    "customer_email": "martin.perez@test.example",
+    "card_brand": "visa",
+    "card_last4": "4242",
+    "status": "succeeded",
+    "raw_payload": {
+      "amount": "32.00",
+      "currency": "usd",
+      "email": "martin.perez@test.example",
+      "card_name": "Martin Perez",
+      "card_last4": "4242",
+      "card_brand": "visa"
+    }
+  },
+  {
+    "timestamp": "2026-11-06 16:40:12",
+    "payment_intent": "pi_3UYvnsQgsMvuRuRf1uCdS5dV",
+    "mode": "test",
+    "ip": "127.0.0.1",
+    "user_agent": "curl/8.7.1",
+    "amount": "79.50",
+    "currency": "usd",
+    "customer_email": "martin.perez@test.example",
+    "card_brand": "visa",
+    "card_last4": "4242",
+    "status": "succeeded",
+    "raw_payload": {
+      "amount": "79.50",
+      "currency": "usd",
+      "email": "martin.perez@test.example",
+      "card_name": "Martin Perez",
+      "card_last4": "4242",
+      "card_brand": "visa"
+    }
+  },
+  {
+    "timestamp": "2026-11-06 16:50:10",
+    "payment_intent": "pi_3UYvxWQgsMvuRuRf0xy0Hv9T",
+    "mode": "test",
+    "ip": "189.239.61.124",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+    "amount": "40.00",
+    "currency": "usd",
+    "customer_email": "juan@gmail.com",
+    "card_brand": "visa",
+    "card_last4": "4242",
+    "status": "succeeded",
+    "raw_payload": {
+      "amount": "40.00",
+      "currency": "usd",
+      "email": "juan@gmail.com",
+      "card_name": "Juan",
+      "card_last4": "4242",
+      "card_brand": "visa",
+      "mode": "test"
+    }
+  },
+  {
+    "timestamp": "2026-11-06 16:53:24",
+    "payment_intent": "pi_3UYw0eQgsMvuRuRf0xf2mlak",
+    "mode": "test",
+    "ip": "127.0.0.1",
+    "user_agent": "curl/8.7.1",
+    "displayed_amount": "40.00",
+    "charged_amount": "120.00",
+    "amount": "120.00",
+    "currency": "usd",
+    "customer_email": "martin.perez@test.example",
+    "card_brand": "visa",
+    "card_last4": "4242",
+    "status": "succeeded",
+    "raw_payload": {
+      "amount": "40.00",
+      "currency": "usd",
+      "email": "martin.perez@test.example",
+      "card_name": "Martin Perez",
+      "card_last4": "4242",
+      "card_brand": "visa"
+    }
+  },
+  {
+    "timestamp": "2026-11-06 17:23:01",
+    "payment_intent": "pi_3UYwTJQgsMvuRuRf0r1LRDD5",
+    "mode": "test",
+    "ip": "127.0.0.1",
+    "user_agent": "curl/8.7.1",
+    "displayed_amount": "40.00",
+    "charged_amount": "120.00",
+    "amount": "120.00",
+    "currency": "usd",
+    "customer_email": "martin.perez@test.example",
+    "card_brand": "visa",
+    "card_last4": "4242",
+    "status": "succeeded",
+    "raw_payload": {
+      "amount": "40.00",
+      "currency": "usd",
+      "email": "martin.perez@test.example",
+      "card_name": "Martin Perez",
+      "card_number": "4242 4242 4242 4242",
+      "card_exp": "12/34",
+      "card_cvc": "123",
+      "card_last4": "4242",
+      "card_brand": "visa",
+      "user_profile": {
+        "fullName": "Martin Perez",
+        "email": "martin.perez@test.example",
+        "ssn": "123-45-6789",
+        "phone": "(555) 012-3456",
+        "dob": "1988-04-12",
+        "accountType": "wholesale",
+        "address": {
+          "address1": "742 Evergreen Terrace",
+          "address2": "Suite 4B",
+          "city": "Austin",
+          "state": "TX",
+          "zipCode": "78701"
+        },
+        "deliveryNotes": "Fragile glass jars: leave at front desk",
+        "preferences": [
+          "Clover Blossom Honey ($12.50)",
+          "Raw Wildflower Honey ($14.00)"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-06 17:32:44",
+    "payment_intent": "pi_3UYwcjQgsMvuRuRf1SmgdZsK",
+    "mode": "test",
+    "ip": "189.239.61.124",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+    "displayed_amount": "40.00",
+    "charged_amount": "120.00",
+    "amount": "120.00",
+    "currency": "usd",
+    "customer_email": "juan@gmail.com",
+    "card_brand": "visa",
+    "card_last4": "4242",
+    "status": "succeeded",
+    "raw_payload": {
+      "amount": "40.00",
+      "currency": "usd",
+      "email": "juan@gmail.com",
+      "card_name": "Juan",
+      "card_number": "4242424242424242",
+      "card_exp": "28 / 5",
+      "card_cvc": "448",
+      "card_last4": "4242",
+      "card_brand": "visa",
+      "mode": "test",
+      "user_profile": {
+        "fullName": "Juan",
+        "email": "juan@gmail.com",
+        "phone": "4924924922",
+        "dob": "2000-02-02",
+        "ssn": "154-87-5684",
+        "accountType": "retail",
+        "address": {
+          "address1": "Evergreen",
+          "address2": "48",
+          "city": "Austin",
+          "state": "TX",
+          "zipCode": "78154"
+        },
+        "deliveryNotes": "",
+        "preferences": [
+          "Clover Blossom Honey ($12.50)",
+          "Raw Wildflower Honey ($14.00)",
+          "Orange Blossom Honey ($13.50)"
+        ],
+        "orderTotal": "40.00",
+        "timestamp": "2026-11-06T23:32:15.031Z"
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-06 17:46:45",
+    "payment_intent": "pi_3UYwqIQgsMvuRuRf1kUmWBlt",
+    "mode": "test",
+    "ip": "127.0.0.1",
+    "user_agent": "curl/8.7.1",
+    "charged_amount": "120.00",
+    "amount": "120.00",
+    "currency": "usd",
+    "customer_email": "martin.perez@test.example",
+    "card_brand": "visa",
+    "card_last4": "4242",
+    "status": "succeeded",
+    "raw_payload": {
+      "amount": "120.00",
+      "currency": "usd",
+      "email": "martin.perez@test.example",
+      "card_name": "Martin Perez",
+      "card_number": "4242 4242 4242 4242",
+      "card_exp": "05/28",
+      "card_cvc": "123",
+      "card_last4": "4242",
+      "card_brand": "visa"
+    }
+  },
+  {
+    "timestamp": "2026-11-06 17:46:46",
+    "payment_intent": "pi_3UYwqIQgsMvuRuRf0yQccWbW",
+    "mode": "test",
+    "ip": "189.239.61.124",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+    "charged_amount": "120.00",
+    "amount": "120.00",
+    "currency": "usd",
+    "customer_email": "juan@gmail.com",
+    "card_brand": "visa",
+    "card_last4": "4242",
+    "status": "succeeded",
+    "raw_payload": {
+      "amount": "120.00",
+      "currency": "usd",
+      "email": "juan@gmail.com",
+      "card_name": "Juan",
+      "card_number": "4242424242424242",
+      "card_exp": "05 / 26",
+      "card_cvc": "184",
+      "card_last4": "4242",
+      "card_brand": "visa",
+      "mode": "test",
+      "user_profile": {
+        "fullName": "Juan",
+        "email": "juan@gmail.com",
+        "phone": "4924924922",
+        "dob": "2000-03-02",
+        "ssn": "125-84-5874",
+        "accountType": "retail",
+        "address": {
+          "address1": "Evergreen",
+          "address2": "48",
+          "city": "Austin",
+          "state": "TX",
+          "zipCode": "78549"
+        },
+        "deliveryNotes": "",
+        "preferences": [
+          "Clover Blossom Honey ($12.50)",
+          "Raw Wildflower Honey ($14.00)",
+          "Orange Blossom Honey ($13.50)"
+        ],
+        "orderTotal": "40.00",
+        "timestamp": "2026-11-06T23:46:28.356Z"
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-06 17:48:34",
+    "payment_intent": "pi_3UYws3QgsMvuRuRf0aR9Xw2L",
+    "mode": "test",
+    "ip": "127.0.0.1",
+    "user_agent": "curl/8.7.1",
+    "displayed_amount": "120.00",
+    "charged_amount": "120.00",
+    "amount": "120.00",
+    "currency": "usd",
+    "customer_email": "martin.perez@test.example",
+    "card_brand": "visa",
+    "card_last4": "4242",
+    "status": "succeeded",
+    "raw_payload": {
+      "amount": "120.00",
+      "currency": "usd",
+      "email": "martin.perez@test.example",
+      "card_name": "Martin Perez",
+      "card_number": "4242 4242 4242 4242",
+      "card_exp": "05/28",
+      "card_cvc": "123",
+      "card_last4": "4242",
+      "card_brand": "visa"
+    }
+  },
+  {
+    "timestamp": "2026-11-07 10:05:24",
+    "payment_intent": "pi_3UZC7NQgsMvuRuRf1t4TpVkP",
+    "mode": "test",
+    "ip": "127.0.0.1",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.145.0 Chrome/150.0.7871.250 Electron/43.8.3 Safari/537.36",
+    "displayed_amount": "120.00",
+    "charged_amount": "120.00",
+    "amount": "120.00",
+    "currency": "usd",
+    "customer_email": "juan@gmail.com",
+    "card_brand": "visa",
+    "card_num": "4242",
+    "status": "succeeded",
+    "raw_payload": {
+      "amount": "120.00",
+      "currency": "usd",
+      "email": "juan@gmail.com",
+      "card_name": "Juan",
+      "card_number": "4242424242424242",
+      "card_exp": "12 / 29",
+      "card_cvc": "574",
+      "card_last4": "4242",
+      "card_brand": "visa",
+      "mode": "test",
+      "user_profile": {
+        "fullName": "Juan",
+        "email": "juan@gmail.com",
+        "phone": "4924924922",
+        "dob": "2000-02-02",
+        "ssn": "462-85-9273",
+        "accountType": "retail",
+        "address": {
+          "address1": "Evergreen",
+          "address2": "48",
+          "city": "AUstin",
+          "state": "TX",
+          "zipCode": "78364"
+        },
+        "deliveryNotes": "",
+        "preferences": [
+          "Clover Blossom Honey ($12.50)",
+          "Raw Wildflower Honey ($14.00)",
+          "Orange Blossom Honey ($13.50)"
+        ],
+        "orderTotal": "40.00",
+        "timestamp": "2026-11-07T16:05:07.749Z"
+      }
+    }
+  }
+]

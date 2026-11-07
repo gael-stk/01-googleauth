@@ -4,3 +4,4 @@ __pycache__/
 captured_credentials.json
 captured_credentials.log
 .DS_Store
+.env
