@@ -1,6 +1,3 @@
 Name: Martin Perez
-Email: martin.perez@test.example
-Google Workspace SSO:
-  Username: martin.perez@test.example
-  Password: #martinPass2026!
-Role: Senior Data Analyst
+Email: martin.perez@gmail.com
+Pass: #Martin$221001

